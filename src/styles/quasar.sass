@@ -1,0 +1,63 @@
+@import './quasar.variables.sass'
+@import '~quasar-styl'
+// @import '~quasar-addon-styl';
+
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Poppins:wght@300;400;500;600&display=swap")
+*
+    font-family: "Poppins", sans-serif
+
+.wrapper
+    margin: 0 auto
+    max-width: 1440px
+
+.body--light
+    .bg-transparent
+        background-color: #0000001a
+        -webkit-backdrop-filter: blur( 7px )
+        backdrop-filter: blur( 7px )
+
+// .q-toolbar
+//     min-height: 40px
+// custom input style
+.q-field__control,
+.q-field__append,
+.q-field__marginal
+    height: 48px
+
+.q-field--auto-height .q-field__control,
+.q-field--auto-height .q-field__native
+    min-height: 48px
+    max-height: 48px
+
+.q-field__label
+    font-size: 14px
+    line-height: 12px
+
+.q-field__bottom
+    padding: 4px 4px 0
+
+.q-checkbox__bg
+    border-radius: 4px
+
+// custom table 
+.q-table th
+    font-weight: 700
+    font-size: 13px
+.heart
+    color: $red
+    font-size: 14px
+    animation: heart 1s ease infinite
+
+@keyframes heart
+    0%
+        transform: scale(.75)
+    20%
+        transform: scale(1)
+    40%
+        transform: scale(.75)
+    60%
+        transform: scale(1)
+    80%
+        transform: scale(.75)
+    100%
+        transform: scale(.75)
