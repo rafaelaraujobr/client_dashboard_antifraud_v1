@@ -35,7 +35,7 @@
       @mouseover="miniState = false"
       @mouseout="miniState = true"
     >
-      <!-- <main-menu :miniState="miniState" /> -->
+      <main-menu :miniState="miniState" />
     </q-drawer>
 
     <q-page-container>
@@ -47,7 +47,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import AccountMenu from "../components/AccountMenu.vue";
-// import MainMenu from "../components/MainMenu.vue";
+import MainMenu from "../components/MainMenu.vue";
 const leftDrawerOpen = ref<boolean>(false);
 const miniState = ref<boolean>(true);
 const toggleLeftDrawer = () => {

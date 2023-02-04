@@ -1,0 +1,73 @@
+.grid-stack-item
+    .placeholder-content
+        border: 2px dashed $grey-5
+        border-radius: $generic-border-radius
+        background-color: transparent !important
+    .grid-stack-item__header
+        .q-btn__content
+            display: none
+
+.grid-stack__grid
+    .grid-stack-item__header
+        transition: background-color 0.3s ease
+        cursor: move
+        .q-btn__content
+            display: none
+    .grid-stack-item-content
+        transition: transform 0.5s ease
+    .grid-stack-item
+        .grid-stack-item-content
+            &:hover
+                border: 1px solid $grey-5
+                .q-btn__content
+                    .q-btn__content
+                        display: block
+        &:hover
+            animation: breathing 1s infinite
+            animation-timing-function: ease-in-out
+
+.body--light
+    .grid-stack__grid
+        border-right: 1px solid $grey-3
+        border-bottom: 1px solid $grey-3
+        &::before
+            background-image: linear-gradient( $grey-3 0.9px, transparent 0.9px),linear-gradient(90deg, $grey-3 0.9px, transparent 0.9px)
+        .grid-stack-item-content
+            &:hover
+                .grid-stack-item__header
+                    background-color: $grey-2 !important
+.body--dark
+    .grid-stack__grid
+        border-right: 1px solid $grey-9
+        border-bottom: 1px solid $grey-9
+        &::before
+            background-image: linear-gradient( $grey-9 0.9px, transparent 0.9px),linear-gradient(90deg, $grey-9 0.9px, transparent 0.9px)
+        .grid-stack-item-content
+            &:hover
+                .grid-stack-item__header
+                    background-color: $grey-9 !important
+
+@keyframes breathing
+    0%
+        -webkit-transform: scale(1)
+        -ms-transform: scale(1)
+        transform: scale(1)
+    50%
+        -webkit-transform: scale(0.995)
+        -ms-transform: scale(0.995)
+        transform: scale(0.995)
+    100%
+        -webkit-transform: scale(1)
+        -ms-transform: scale(1)
+        transform: scale(1)
+
+// .grid-stack
+//     .grid-stack-item
+//         .ui-resizable-se
+//             background-image: url(../assets/images/resize.svg)
+//             background-repeat: no-repeat
+//             transform: rotate(0deg)
+//         .ui-resizable-sw
+//             background-image: url(../assets/images/resize.svg)
+//             background-repeat: no-repeat
+//             transform: rotate(90deg)
