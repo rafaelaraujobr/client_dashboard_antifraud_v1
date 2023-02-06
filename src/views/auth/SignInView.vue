@@ -3,8 +3,8 @@ import { loginService } from "../../services/accountServices";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-const email = ref("rflaraujodev@gmail.com");
-const password = ref("c5Jg0N$8KD1I");
+const email = ref<string>("");
+const password = ref<string>("");
 const loading = ref(false);
 const showPassword = ref(false);
 const onSubmit = async (e: Event) => {
