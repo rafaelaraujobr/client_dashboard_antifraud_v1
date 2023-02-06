@@ -8,7 +8,8 @@ import router from "../router";
 import { refreshTokenService } from "../services/accountServices";
 
 const http: AxiosInstance = axios.create({
-  baseURL: process.env.API_URL || "http://localhost:3000/api/v1/",
+  //baseURL: process.env.API_URL || "http://localhost:3000/api/v1/",
+  baseURL: "https://api-dashboard-antifraud.up.railway.app/api/v1/",
 });
 
 http.interceptors.request.use(
