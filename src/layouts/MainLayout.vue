@@ -7,7 +7,7 @@
           round
           icon="sym_r_notes"
           @click="toggleLeftDrawer"
-          color="primary"
+          color="secondary"
         />
 
         <q-toolbar-title>
@@ -28,12 +28,20 @@
     <q-drawer
       v-model="leftDrawerOpen"
       side="left"
-      bordered
       show-if-above
       :mini="miniState"
       :mini-width="50"
       @mouseover="miniState = false"
       @mouseout="miniState = true"
+      class="text-white"
+      style="
+        background: rgb(251, 65, 104);
+        background: linear-gradient(
+          162deg,
+          rgba(251, 65, 104, 1) 0%,
+          rgba(251, 65, 104, 0.3477766106442577) 100%
+        );
+      "
     >
       <main-menu :miniState="miniState" />
     </q-drawer>

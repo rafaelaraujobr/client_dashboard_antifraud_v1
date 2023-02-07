@@ -82,7 +82,7 @@ const menuList = ref<IMenu[]>([
               <q-item
                 clickable
                 v-ripple
-                class="q-pl-lg q-my-xs rounded-borders q-mx-md"
+                class="q-pl-lg q-my-xs rounded-borders q-mx-md text-white"
                 :to="{ path: child.route }"
               >
                 <q-item-section>{{ child.name }}</q-item-section>
@@ -94,19 +94,21 @@ const menuList = ref<IMenu[]>([
           <q-item
             clickable
             :to="{ path: item.route }"
-            class="q-my-xs rounded-borders q-pa-sm"
+            class="q-my-xs rounded-borders q-pa-sm text-white"
             :class="miniState || 'q-mx-md'"
           >
             <q-item-section avatar>
               <q-icon
                 :name="item.icon"
-                :color="currentRoute === item.route ? '' : 'grey'"
+                :color="currentRoute === item.route ? '' : 'white'"
                 size="2em"
               />
             </q-item-section>
             <q-item-section
               :class="
-                currentRoute === item.route ? 'text-weight-medium' : 'text-grey'
+                currentRoute === item.route
+                  ? 'text-weight-medium text-white'
+                  : 'text-white'
               "
               >{{ item.name }}</q-item-section
             >

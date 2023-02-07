@@ -1,6 +1,5 @@
 <template>
   <div ref="chartRef"></div>
-  <div ref="chartLineRef"></div>
 </template>
 <script lang="ts" setup>
 import ApexCharts from "apexcharts";
@@ -46,7 +45,7 @@ const options = computed(() => ({
     id: "chart2",
     type: "line",
     fontFamily: "Poppins, sans-serif",
-    height: (props.size.height - 22) / 2,
+    height: props.size.height - 28,
     width: "100%",
     toolbar: {
       autoSelected: "pan",
