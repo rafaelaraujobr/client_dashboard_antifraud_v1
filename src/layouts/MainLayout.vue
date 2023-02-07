@@ -43,6 +43,22 @@
         );
       "
     >
+      <q-item class="q-mb-md">
+        <q-item-section avatar>
+          <img
+            :src="
+              require('@/assets/images/dynaton__logo-horizontal-white-02.png')
+            "
+            v-show="!miniState"
+            style="height: 30px"
+          />
+          <img
+            :src="require('@/assets/images/dynaton__logo-solo-white-big.png')"
+            v-show="miniState"
+            style="height: 30px"
+          />
+        </q-item-section>
+      </q-item>
       <main-menu :miniState="miniState" />
     </q-drawer>
 

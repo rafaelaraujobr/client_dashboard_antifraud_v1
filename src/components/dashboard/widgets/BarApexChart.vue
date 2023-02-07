@@ -35,7 +35,7 @@ const options = computed(() => ({
   },
   plotOptions: {
     bar: {
-      borderRadius: 8,
+      borderRadius: 4,
       dataLabels: {
         position: "top", // top, center, bottom
       },

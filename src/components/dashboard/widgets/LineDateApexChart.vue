@@ -26,23 +26,23 @@ const props = defineProps({
     required: true,
   },
 });
-const generateDayWiseTimeSeries = (baseval: any, count: any, yrange: any) => {
-  let i = 0;
-  let series = [];
-  while (i < count) {
-    let x = baseval;
-    let y =
-      Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-    series.push([x, y]);
-    baseval += 86400000;
-    i++;
-  }
-  return series;
-};
-const data = generateDayWiseTimeSeries(new Date("19 Jun 2017").getTime(), 115, {
-  min: 30,
-  max: 90,
-});
+// const generateDayWiseTimeSeries = (baseval: any, count: any, yrange: any) => {
+//   let i = 0;
+//   let series = [];
+//   while (i < count) {
+//     let x = baseval;
+//     let y =
+//       Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+//     series.push([x, y]);
+//     baseval += 86400000;
+//     i++;
+//   }
+//   return series;
+// };
+// const data = generateDayWiseTimeSeries(new Date("19 Jun 2017").getTime(), 115, {
+//   min: 30,
+//   max: 90,
+// });
 const chartRef = ref<any>(null);
 const chart = ref<any>(null);
 const options = computed(() => ({

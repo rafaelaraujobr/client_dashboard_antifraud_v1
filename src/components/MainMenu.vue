@@ -26,38 +26,38 @@ const menuList = ref<IMenu[]>([
   //     icon: "sym_r_receipt_long",
   //     route: "/transactions",
   //   },
-  //   {
-  //     id: 3,
-  //     name: "Companies",
-  //     icon: "sym_r_business",
-  //     route: "/companies",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Settings",
-  //     icon: "sym_r_settings",
-  //     route: "/settings",
-  //     children: [
-  //       {
-  //         id: 22,
-  //         name: "Users",
-  //         icon: "sym_r_settings",
-  //         route: "/settings/users",
-  //       },
-  //       {
-  //         id: 23,
-  //         name: "Roles",
-  //         icon: "sym_r_settings",
-  //         route: "/settings/roles",
-  //       },
-  //       {
-  //         id: 24,
-  //         name: "Permissions",
-  //         icon: "sym_r_settings",
-  //         route: "/settings/permissions",
-  //       },
-  //     ],
-  //   },
+  {
+    id: 3,
+    name: "Companies",
+    icon: "sym_r_business",
+    route: "/companies",
+  },
+  {
+    id: 4,
+    name: "Settings",
+    icon: "sym_r_settings",
+    route: "/settings",
+    children: [
+      {
+        id: 22,
+        name: "Users",
+        icon: "sym_r_settings",
+        route: "/settings/users",
+      },
+      // {
+      //   id: 23,
+      //   name: "Roles",
+      //   icon: "sym_r_settings",
+      //   route: "/settings/roles",
+      // },
+      // {
+      //   id: 24,
+      //   name: "Permissions",
+      //   icon: "sym_r_settings",
+      //   route: "/settings/permissions",
+      // },
+    ],
+  },
   {
     id: 5,
     name: "About",
@@ -73,11 +73,16 @@ const menuList = ref<IMenu[]>([
       <template v-for="item in menuList" :key="item.id">
         <template v-if="item.children && item.children?.length > 0">
           <q-expansion-item
-            :label="item.name"
-            :icon="item.icon"
-            header-class="q-my-xs rounded-borders q-pa-sm"
+            header-class="q-my-xs rounded-borders text-white q-pa-sm"
+            expand-icon-class="text-white"
             :class="miniState || 'q-mx-md'"
           >
+            <template v-slot:header>
+              <q-item-section avatar
+                ><q-icon :name="item.icon"
+              /></q-item-section>
+              <q-item-section>{{ item.name }}</q-item-section>
+            </template>
             <template v-for="child in item.children" :key="child.id">
               <q-item
                 clickable
@@ -101,7 +106,6 @@ const menuList = ref<IMenu[]>([
               <q-icon
                 :name="item.icon"
                 :color="currentRoute === item.route ? '' : 'white'"
-                size="2em"
               />
             </q-item-section>
             <q-item-section
