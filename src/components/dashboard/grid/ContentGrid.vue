@@ -6,6 +6,8 @@
 import LineApexChart from "../widgets/LineDateApexChart.vue";
 import BarApexChart from "../widgets/BarApexChart.vue";
 import BrushApexChart from "../widgets/BrushApexChart.vue";
+import RadialApexChart from "../widgets/RadialApexChart.vue";
+import ListTable from "../widgets/ListTable.vue";
 
 import CardView from "../widgets/CardView.vue";
 import { ref, defineProps } from "vue";
@@ -23,6 +25,8 @@ const components: any = {
   LineApexChart,
   BarApexChart,
   BrushApexChart,
+  RadialApexChart,
+  ListTable,
 };
 
 // const components = {

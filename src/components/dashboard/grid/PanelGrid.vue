@@ -17,48 +17,16 @@ const items = ref<any[]>([
     id: 1,
     x: 0,
     y: 0,
-    w: 3,
-    h: 2,
-    minW: 2,
+    w: 9,
+    h: 3,
+    minW: 6,
     minH: 2,
-    maxW: 3,
-    maxH: 2,
+    maxW: 9,
+    maxH: 3,
     widget: {
-      name: "Volume de ocorrências",
+      name: "Visao geral",
       component: "CardView",
       value: "1K",
-    },
-  },
-  {
-    id: 3,
-    x: 3,
-    y: 0,
-    w: 3,
-    h: 2,
-    minW: 2,
-    minH: 2,
-    maxW: 3,
-    maxH: 2,
-    widget: {
-      name: "Ocorrências com Identificação",
-      component: "CardView",
-      value: 300,
-    },
-  },
-  {
-    id: 4,
-    x: 6,
-    y: 0,
-    w: 3,
-    h: 2,
-    minW: 2,
-    minH: 2,
-    maxW: 3,
-    maxH: 2,
-    widget: {
-      name: "Plataform com mais ganho de trocas",
-      component: "CardView",
-      value: "Awin",
     },
   },
   {
@@ -70,10 +38,10 @@ const items = ref<any[]>([
     minW: 2,
     minH: 2,
     maxW: 3,
-    maxH: 2,
+    maxH: 3,
     widget: {
-      name: "Troca por Iframe 0x0",
-      component: "CardView",
+      name: "Nivel de criticidade",
+      component: "RadialApexChart",
       value: 250,
     },
   },
@@ -81,31 +49,15 @@ const items = ref<any[]>([
     id: 7,
     x: 0,
     y: 2,
-    w: 6,
-    h: 3,
+    w: 12,
+    h: 5,
     minW: 5,
     minH: 3,
     maxW: 12,
     maxH: 5,
     widget: {
-      name: "Volume de ocorrências",
+      name: "Gráfico de ocorrências",
       component: "LineApexChart",
-      value: 1000,
-    },
-  },
-  {
-    id: 8,
-    x: 6,
-    y: 2,
-    w: 6,
-    h: 3,
-    minW: 5,
-    minH: 3,
-    maxW: 12,
-    maxH: 5,
-    widget: {
-      name: "Volume de ocorrências",
-      component: "BrushApexChart",
       value: 1000,
     },
   },
@@ -113,47 +65,47 @@ const items = ref<any[]>([
     id: 9,
     x: 0,
     y: 5,
-    w: 4,
-    h: 3,
+    w: 12,
+    h: 7,
     minW: 4,
     minH: 3,
     maxW: 12,
-    maxH: 5,
+    maxH: 7,
     widget: {
       name: "Volume de ocorrências",
-      component: "BarApexChart",
+      component: "ListTable",
     },
   },
-  {
-    id: 8,
-    x: 4,
-    y: 5,
-    w: 4,
-    h: 3,
-    minW: 4,
-    minH: 3,
-    maxW: 12,
-    maxH: 5,
-    widget: {
-      name: "Volume de ocorrências",
-      component: "BarApexChart",
-    },
-  },
-  {
-    id: 8,
-    x: 8,
-    y: 5,
-    w: 4,
-    h: 3,
-    minW: 4,
-    minH: 3,
-    maxW: 12,
-    maxH: 5,
-    widget: {
-      name: "Volume de ocorrências",
-      component: "BarApexChart",
-    },
-  },
+  // {
+  //   id: 8,
+  //   x: 4,
+  //   y: 5,
+  //   w: 4,
+  //   h: 3,
+  //   minW: 4,
+  //   minH: 3,
+  //   maxW: 12,
+  //   maxH: 5,
+  //   widget: {
+  //     name: "Volume de ocorrências",
+  //     component: "BarApexChart",
+  //   },
+  // },
+  // {
+  //   id: 8,
+  //   x: 8,
+  //   y: 5,
+  //   w: 4,
+  //   h: 3,
+  //   minW: 4,
+  //   minH: 3,
+  //   maxW: 12,
+  //   maxH: 5,
+  //   widget: {
+  //     name: "Volume de ocorrências",
+  //     component: "BarApexChart",
+  //   },
+  // },
 ]);
 const initGridStack = (options: any): void => {
   grid = GridStack.init(options, ".grid-stack");
@@ -166,19 +118,20 @@ const onChangeGridStack = (gridstackInstace: GridStack): void => {
     });
   });
 };
-const heightGridStack = computed<number>(
-  () => window.innerHeight - (50 + 24 + 24 + 2)
-);
+// const heightGridStack = computed<number>(
+//   () => window.innerHeight - (50 + 24 + 24 + 2)
+// );
 const options = computed<GridStackOptions>(() => {
   return {
-    row: 8,
-    maxRow: 8,
+    // row: 8,
+    // maxRow: 8,
     column: 12,
     margin: 10,
     float: true,
     removable: ".grid-stack-trash",
     dragIn: ".grid-stack-new-widget",
-    cellHeight: heightGridStack.value / 8,
+    //cellHeight: heightGridStack.value / 8,
+    cellHeight: 88,
     resizable: {
       handles: "se, sw",
     },
@@ -197,7 +150,11 @@ onMounted((): void => {
 </script>
 
 <template>
-  <q-card flat :class="modeEdit ? 'grid-stack__grid' : ''">
+  <q-card
+    flat
+    :class="modeEdit ? 'grid-stack__grid' : ''"
+    class="bg-transparent"
+  >
     <div class="grid-stack">
       <item-grid v-for="item in items" :key="item.id" :item="item" />
     </div>
