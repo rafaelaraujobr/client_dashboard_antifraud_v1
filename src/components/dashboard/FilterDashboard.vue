@@ -1,6 +1,6 @@
 <template>
   <q-toolbar>
-    <div class="row q-col-gutter-md">
+    <div class="row q-col-gutter-md q-py-md">
       <q-select
         v-model="model"
         :options="['Motorola']"
@@ -11,19 +11,19 @@
       />
       <q-select
         v-model="model"
-        :options="['Motorola']"
+        :options="['Awing']"
         label="Rede"
         outlined
         style="width: 300px"
         bg-color="bg-white"
       />
-      <q-input
-        v-model="model"
-        type="text"
-        label="Periodo"
-        style="width: 400px"
-        bg-color="bg-white"
-        outlined
+      <input-date-range
+        :v-model="date"
+        @update:model-value="
+          (val: string) => {
+            date = val;
+          }
+        "
       />
     </div>
     <q-space />
@@ -34,5 +34,7 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-const model = ref("Motorola");
+import InputDateRange from "../widgets/InputDateRange.vue";
+const model = ref<string>("Motorola");
+const date = ref<string>("02/01/2023 - 02/28/2023");
 </script>

@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 export const useDashboardStore = defineStore("dashboard", () => {
   const dashboards = ref<any[]>();
-  const modeEdit = ref<boolean>(true);
+  const modeEdit = ref<boolean>(false);
   const setModeEdit = (data: boolean) => {
     modeEdit.value = data;
   };
